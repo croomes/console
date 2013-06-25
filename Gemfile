@@ -6,26 +6,43 @@ gem 'rails', '4.0.0.rc2'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0.rc2'
+gem 'sprockets-rails', github: 'rails/sprockets-rails', :require => 'sprockets/railtie'
 
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+group :assets do
 
-# Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
+  # Use SCSS for stylesheets
+  gem 'sass-rails', '~> 4.0.0.rc2'
 
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+  # Use Compass for Core Admin theme
+  gem 'compass-rails', github: "milgner/compass-rails", branch: "rails4"
 
-# Use jquery as the JavaScript library
-gem 'jquery-rails'
+  # Use Uglifier as compressor for JavaScript assets
+  gem 'uglifier', '>= 1.3.0'
+
+  # Use CoffeeScript for .js.coffee assets and views
+  gem 'coffee-rails', '~> 4.0.0'
+
+  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+  # gem 'therubyracer', platforms: :ruby
+
+  # Use jquery as the JavaScript library
+  gem 'jquery-rails'
+  
+  # Use the font awesome plugin so the asset paths are handled correctly, removed FA files from Core Admin.
+  # gem "font-awesome-rails"
+
+end
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
+
+# Core Admin requirements
+# gem 'middleman', '~> 3.1.1'
+gem 'json'
+
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

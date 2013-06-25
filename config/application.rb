@@ -1,6 +1,7 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
+require 'compass'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -19,5 +20,17 @@ module Console
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+
+    # Hack to fix Compass in Rails 4
+    # https://github.com/Compass/compass-rails/pull/59#issuecomment-17475702
+    if defined?(Compass)
+      config.assets.paths << Compass::Frameworks[:compass].stylesheets_directory
+    end
+
+    # Precompile additional assets (not sure if this is still needed?)
+    config.assets.precompile += %w( .svg .eot .woff .ttf )
+    
   end
 end
+
+
